@@ -19,7 +19,11 @@ clf_pipeline = [('scaling', MinMaxScaler()),
 pipeline = Pipeline(clf_pipeline)
 
 
-pipeline.fit(X, y)
+model = pipeline.fit(X, y)
+score = model.predict([[3,1,1.1,4]])
+prob = model.predict_log_proba([[3,1,1.1,4]])
 
+print(score)
+print(prob)
 #save to joblib file
-dump(pipeline, './iris_model_base.joblib')
+# dump(pipeline, './iris_model_base.joblib')
